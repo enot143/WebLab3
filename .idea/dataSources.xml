@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="points" uuid="65d90b28-fce1-45bb-8671-8eb71620138b">
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <configured-by-url>true</configured-by-url>
+      <remarks>EclipseLink
+
+C:/Users/arina/Downloads/web_lab_3-master/web_lab_3-master/web_lab_3/src/main/META-INF/persistence.xml</remarks>
+      <jdbc-driver>oracle.jdbc.driver.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@localhost:1521:oracle</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="@localhost" uuid="886c10e5-b43a-4260-a76f-5ce76db1a16f">
+      <driver-ref>oracle</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@localhost:1521:orbis</jdbc-url>
+    </data-source>
+  </component>
+</project>

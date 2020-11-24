@@ -1,0 +1,169 @@
+body { 
+    width: 1000px;
+    text-align: center;
+    margin: 0 auto 0;
+}
+
+
+.link {
+    display: block;
+}
+
+.line-title {
+    color: cadetblue;
+    font-weight: bold;
+}
+
+
+.content {
+    text-align: center;
+    display: inline-block;
+    margin-top: 25px;
+}
+
+
+#canvass {
+    box-shadow: 0 1px 4px cadetblue;
+    text-align: center;
+
+}
+
+
+
+.coordinates-view {
+    text-align: left;
+    margin-left: 280px;
+    margin-bottom: 26px;
+    width: 220px;
+}
+
+.choose-values {
+    margin-bottom: 16px;
+    display: block;
+}
+
+.choose-values.x {
+    margin-bottom: 3px;
+}
+
+.checkbox-values {
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 18px;
+
+}
+
+.slider-value {
+    margin-left: 200px;
+    margin-bottom: 16px;
+
+}
+
+
+.y {
+    width: 180px;
+    margin-right: 6px;
+}
+
+.checkbox-values label {
+    margin-right: 10px;
+    margin-left: 2px;
+}
+
+.input-error-message {
+    color: red;
+    display: none;
+    margin-top: 8px;
+    margin-bottom: 6px;
+}
+
+.input-error-message.r-input-error-message.visible {
+    display: block;
+}
+
+.input-error-message.y-input-error-message.visible {
+    display: block;
+}
+
+
+.inputs-block {
+    display: block;
+    text-align: left;
+    margin-left: 120px;
+}
+
+.buttons-block {
+    display: block;
+    margin-top: 26px;
+}
+
+.button {
+    margin-right: 16px;
+    height: 34px;
+    width: 180px;
+    border-radius: 100px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background-color: cadetblue;
+    border-color: cadetblue;
+    box-shadow: 4px 4px 10px cadetblue;
+}
+
+
+.button:hover {
+    transform: scale(0.9);
+    color: cadetblue;
+    background-color: white;
+    box-shadow: none;
+}
+
+.hidden-form {
+    display: none;
+}
+
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+
+table {
+    margin: 50px auto 40px;
+}
+
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+
+table th {
+    color: white;
+    background-color: cadetblue;
+}
+
+
+table tr:nth-child(even){
+    background-color: gainsboro;
+}
+
+
+table tr:nth-child(odd){
+    background-color: white;
+}
+
+.server-answer-no {
+    color: rgb(255, 77, 140);
+}
+
+.server-answer-yes {
+    color: rgb(0, 179, 0);
+}
+
+
+
+
+

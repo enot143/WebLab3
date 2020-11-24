@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+
+<h:head>
+    <title>web_lab_3</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+
+<h:body>
+
+    <ui:include src="header.xhtml"/>
+
+    <h:link styleClass="link" outcome="welcome_page">Вернуться на стартовую страницу</h:link>
+
+    <h:panelGroup styleClass="content">
+
+        <canvas id="canvass" width="340" height="340">
+            <p>Your browser doesn't support canvas.</p>
+        </canvas>
+
+        <section class="coordinates-view">
+            <p>
+                X : <span class="x">?</span>
+                <br/>
+                Y : <span class="y">?</span>
+            </p>
+
+        </section>
+
+
+        <h:form id="form">
+            <h:panelGroup styleClass="inputs-block">
+                <h:panelGroup styleClass="choose-values x">
+                    <h:outputLabel styleClass="line-title" value="Значение X:" />
+
+                    <ace:sliderEntry id="x" value="#{pointBean.xFromForm}" styleClass="checkbox-values x" min="-4" max="4" stepPercent="12.5" length="170px" clickableRail="true" showLabels="true">
+                        <ace:ajax event="slideEnd" execute="@this" render="@form"/>
+                    </ace:sliderEntry>
+
+                </h:panelGroup>
+
+                <h:outputText styleClass="slider-value" value="#{pointBean.xFromForm}"/>
+
+
+                <h:panelGroup styleClass="choose-values">
+                    <h:outputLabel styleClass="line-title" value="Значение Y:" />
+
+                    <h:inputText id="y" styleClass="checkbox-values y"
+                                 converterMessage="Значение 'y' должно быть числом в диапазоне (-5 , 5)."
+                                 required="true"
+                                 requiredMessage="Обязательно введите значение Y"
+                                 maxlength="5"
+                                 value="#{pointBean.yFromForm}">
+                        <f:validator validatorId="YInputValidator"/>
+                    </h:inputText>
+                    <h:message for = "y" style = "color:red"  styleClass="input-error-message y-input-error-message visible"/>
+                </h:panelGroup>
+
+
+                <h:panelGroup styleClass="choose-values">
+
+                    <h:outputLabel styleClass="line-title" value="Значение R:" />
+
+                    <h:panelGroup id="r" styleClass="checkbox-values r">
+                        <h:selectBooleanCheckbox id="r1" styleClass="" value="#{pointBean.rFromForm[0]}"/>
+                        <h:outputLabel for="r1" value="1"/>
+
+                        <h:selectBooleanCheckbox id="r2" styleClass="" value="#{pointBean.rFromForm[1]}"/>
+                        <h:outputLabel for="r2" value="2"/>
+
+                        <h:selectBooleanCheckbox id="r3" styleClass="" value="#{pointBean.rFromForm[2]}"/>
+                        <h:outputLabel for="r3" value="3"/>
+
+                        <h:selectBooleanCheckbox id="r4" styleClass="" value="#{pointBean.rFromForm[3]}"/>
+                        <h:outputLabel for="r4" value="4"/>
+
+                        <h:selectBooleanCheckbox id="r5" styleClass="" value="#{pointBean.rFromForm[4]}"/>
+
+                        <h:outputLabel for="r5" value="5"/>
+
+                    </h:panelGroup>
+
+                    <span class="input-error-message r-input-error-message">Обязательно выберете 'R'.</span>
+
+                </h:panelGroup>
+            </h:panelGroup>
+
+            <h:panelGroup styleClass="buttons-block">
+                <h:commandButton styleClass="button button-submit"
+                                 value="Проверить"
+                                 type="submit"
+                                 action="#{pointBean.handleSubmitForm}">
+                </h:commandButton>
+
+                <h:commandButton styleClass="button button-clear-form"
+                                 value="Очистить форму"
+                                 type="button"
+                                 action="#{pointBean.handleClearForm}">
+                    <ace:ajax render="form"/>
+                </h:commandButton>
+
+                <h:commandButton styleClass="button button-clear-table"
+
+                                 value="Зачистить таблицу"
+                                 type="button"
+                                 action="#{pointBean.handleClearTable}">
+                    <ace:ajax render="result-table"/>
+                </h:commandButton>
+            </h:panelGroup>
+
+        </h:form>
+    </h:panelGroup>
+
+
+    <h:panelGroup id="table" styleClass="table">
+        <h:dataTable id="result-table" styleClass="table table-bordered" value="#{pointBean.pointsFromDB}" var="point">
+            <h:column>
+                <f:facet name="header">X</f:facet>
+                #{point.x}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Y</f:facet>
+                #{point.y}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">R</f:facet>
+                #{point.r}
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">Result</f:facet>
+                #{point.result}
+            </h:column>
+        </h:dataTable>
+    </h:panelGroup>
+
+
+    <h:form styleClass="hidden-form">
+        <h:inputText styleClass="x-hidden" value="#{pointBean.xFromHiddenForm}"/>
+        <h:inputText styleClass="y-hidden" value="#{pointBean.yFromHiddenForm}"/>
+        <h:inputText styleClass="r-hidden" value="#{pointBean.rFromHiddenForm}"/>
+        <h:commandButton styleClass="button-submit-hidden" type="submit" action="#{pointBean.handleSubmitHiddenForm}"/>
+    </h:form>
+
+    <ui:include src="footer.xhtml"/>
+
+    <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+    <h:outputScript library="js" name="main_page.js"/>
+
+</h:body>
+</html>

@@ -1,0 +1,12 @@
+body {
+    width: 1000px;
+    text-align: center;
+    margin: 0 auto 0;
+}
+
+.date-time {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+}
